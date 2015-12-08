@@ -1,10 +1,42 @@
 {
-  "name": "jquery.gDialog",
+  "name": "gDialog",
+  "homepage" : "ogilvieira.github.io/gDialog/",
+  "authors" : ["Gil Vieira <ogilvieira@gmail.com>"],
+  "description" : "An elegant jQuery/Zepto.js replacement for browser alerts",
   "version": "0.1.0",
-  "main": "src/jquery.gDialog.js",
+  "main": [
+    "src/jquery.gDialog.js",
+    "src/jquery.gDialog.min.js",
+    "src/jquery.gDialog.css",
+    "src/jquery.gDialog.scss",
+  ],
   "ignore": [
     "README.md",
     "LICENSE",
     ".gitignore",
-  ]
+  ],
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "flat",
+    "responsive",
+    "modal",
+    "popup",
+    "window",
+    "dialog",
+    "popin",
+    "lightbox",
+    "ui",
+    "zepto",
+    "animations"
+  ],  
+  "dependencies": {
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "jquery": "jquery#^1.11.3",
+    "jquery2": "jquery#^2.1.4",
+    "zepto": "^1.1.6"
+  }  
 }
