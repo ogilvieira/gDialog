@@ -1,5 +1,6 @@
 # gDialog
-An elegant jQuery replacement for browser alerts
+An elegant jQuery/Zepto.js replacement for browser alerts
+
 
 ```javascript
 //alert
