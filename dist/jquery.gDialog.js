@@ -9,11 +9,33 @@
         factory(jQuery || Zepto);
     }	
 }(function($){
-	var g = {};
+    var m = {};
+ 	var g = {};
 
-	g.alert = function(message){
-		window.alert( message );
+    m.close = function(){
+        if( $('.gdialog-shadow').length ){
+            $('.gdialog-shadow').remove();
+        };
+    };
+
+    m.init = function(){
+        m.close();
+    };
+
+    //global functions
+    g.alert = function(message){
+        console.log( message );
+        m.init();
+    };
+
+    g.confirm = function(message){
+        console.log( message );
+    };
+
+	g.prompt = function(message){
+        console.log( message );
 	};
 
-	window.g = g;
+
+    $.gDialog = $.gDialog || g;
 }));
