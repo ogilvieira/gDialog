@@ -3,7 +3,7 @@
   "homepage" : "ogilvieira.github.io/gDialog/",
   "authors" : ["Gil Vieira <ogilvieira@gmail.com>"],
   "description" : "An elegant jQuery/Zepto.js replacement for browser alerts",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "main": [
     "src/jquery.gDialog.js",
     "src/jquery.gDialog.min.js",
