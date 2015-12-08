@@ -1,7 +1,7 @@
 # gDialog
 An elegant jQuery/Zepto.js replacement for browser alerts
 
-[view demo](https://www.google.com) 
+[view demo](http://ogilvieira.github.io/gDialog/) 
 
 ```javascript
 //alert
