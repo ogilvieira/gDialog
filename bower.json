@@ -8,12 +8,12 @@
     "src/jquery.gDialog.js",
     "src/jquery.gDialog.min.js",
     "src/jquery.gDialog.css",
-    "src/jquery.gDialog.scss",
+    "src/jquery.gDialog.scss"
   ],
   "ignore": [
     "README.md",
     "LICENSE",
-    ".gitignore",
+    ".gitignore"
   ],
   "keywords": [
     "jquery",
