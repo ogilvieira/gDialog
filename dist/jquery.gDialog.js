@@ -40,7 +40,7 @@
     var m = {};
  	var g = {};
     m.OPENING = false;
-    m.OPTIONS = {
+    m._OPTIONS = {
         title: false,
         animateIn : false,
         animateOut : false,
@@ -89,7 +89,7 @@
 
     m.Dialog = function(){
         var that = this;
-        
+
         that.close = function(){
             $('.gdialog-shadow').addClass("animated fadeOut");
             if( that.options.animateOut ){
@@ -104,6 +104,7 @@
             }else {
                 that.container.remove();
                 m.OPENING = false;
+                $('.gdialog-shadow').remove();
             }
         };
 
@@ -145,13 +146,14 @@
             m.clear();
 
             that.options = m.getOptions(options);
+
             $('body').append("<div class=\"gdialog-shadow\"></div> "+m.getTeplate(type, message, that.options) );
             that.container = $('body').find('.gdialog-wrap');
             that.btnOk = that.container.find('.button-ok');
             that.btnCancel = that.container.find('.button-cancel');
             that.field = that.container.find('input');
             if( defaultValue && that.field.length ){
-                that.field.al(defaultValue);
+                that.field.val(defaultValue);
             };
 
             that.container.addClass('is-active').css({'top': $(window).scrollTop()+50});
@@ -165,12 +167,14 @@
     };
 
     m.getOptions = function(options){
-        var o = m.OPTIONS;
+        var o = $.extend({}, m._OPTIONS);
+
         if( typeof options == 'object' ){
           $.each(options, function(key, val){
             o[key] !== undefined ? o[key] = val : console.error("The option \""+key+"\" not exist.");
           });
-        };
+        }
+
         return o;
     };
 
@@ -199,7 +203,7 @@
     g.config = function(options){
         if( typeof options !== 'object' ){ return false; }
         $.each(options, function(key, val){
-            m.OPTIONS[key] !== undefined ? m.OPTIONS[key] = val : console.error("The option \""+key+"\" not exist.");
+            m._OPTIONS[key] !== undefined ? m._OPTIONS[key] = val : console.error("The option \""+key+"\" not exist.");
         });
     };
 
