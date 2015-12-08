@@ -34,7 +34,7 @@
     } else if (typeof exports === 'object') {
         module.exports = factory(require('jquery'));
     } else {
-        factory(jQuery || Zepto);
+        factory(window.jQuery || window.Zepto);
     }	
 }(function($){
     var m = {};
