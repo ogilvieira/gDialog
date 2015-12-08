@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>gDialog</title>
+    <meta name="description" content="A beautiful CSS framework in under 2 KiB">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bijou.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+  </head>
+  <style type='text/css'>
+      body{
+        margin-top:60px;
+      }
+      .light{
+        background:#CCC;'
+        color:#333;
+      }
+      .dark{
+        background:#333;
+        color:#CCC;
+      }
+      .grid{
+        font-size: 12px;
+      }
+      .banner{
+        text-align:center;
+        padding:10px 0;
+      }
+      .table{
+        margin-bottom:35px;
+      }
+      .banner button{
+        margin-top:7px;
+      }
+      .divider{
+        width:100%;
+        background:#CCC;
+        height:1px;
+        margin:25px 0;
+      }
+      .explainer{
+        font-weight:200;
+        color:#AAA;
+        margin-bottom:10px;
+      }
+      button{
+        margin-bottom:10px;
+      }
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+  line-height: 1.3em;
+}
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #f8f8f2;
+}
+
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a6e22e;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+  color: #f92672;
+}
+
+.hljs-symbol,
+.hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
+}      
+    </style>
+    <body>
+    <div class='navbar fixed'>
+      <div class='container'>
+        <h4 class='pull-left'>jQuery.gDialog</h4>
+        <ul class='pull-right'>
+          <li><a href='https://github.com/ogilvieira/gDialog'>Github</a></li>
+          <li><a href='https://github.com/ogilvieira/gDialog/archive/master.zip'>Download</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class='container main'>
+      
+      <div class='banner row'>
+        <div class='span twelve'>
+          <h4>An elegant jQuery replacement for browser alerts</h4>
+          <a href='https://github.com/ogilvieira/gDialog'><button class='button primary small'>Get it on Github</button></a>
+        </div>
+      </div>
+      
+      <div class="grid">
+        <div class="row" style="text-align: center;">
+          <div class="span twelve">
+            <button class='button success large btn-demo-alert'>ALERT</button>
+            <button class='button success large btn-demo-alert-with-title'>ALERT WITH TITLE</button>
+            <button class='button success large btn-demo-alert-animated'>ALERT ANIMATED</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span twelve">
+            <pre>
+              <code class="javascript">
+                $('.btn-demo-alert').click(function(){
+                  $.gDialog.alert("1 - A robot may not injure a human being or, through inaction, allow a human being to come to harm.");
+                });
+
+                $('.btn-demo-alert-with-title').click(function(){
+                  $.gDialog.alert("2 - A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.", {
+                    title: "Three Laws of Robotics"
+                  });
+                });
+
+                $('.btn-demo-alert-animated').click(function(){
+                  $.gDialog.alert("3 - A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.", {
+                    title: "Three Laws of Robotics",
+                    animateIn: "bounceIn",
+                    animateOut: "flipOutY"
+                  });
+                });              
+              
+              </code>
+            </pre>
+          </div>
+        </div>
+
+        <div class="row" style="text-align: center;">
+          <div class="span twelve">
+            <button class='button primary large btn-demo-prompt'>PROMPT</button>
+            <button class='button primary large btn-demo-confirm'>CONFIRM</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span twelve">
+            <pre>
+              <code class="javascript">
+                //create global config
+                $.gDialog.config({
+                  animateIn : "rollIn",
+                  animateOut: "zoomOutDown"
+                });
+
+                //prompt window
+                $('.btn-demo-prompt').click(function(){
+                  $.gDialog.prompt("Make a wish!", "I want to use this plugin", {
+                    title: "Prompt with required field.",
+                    required: true,
+                    onSubmit: function(res){
+                      //do something
+                    },
+                    onCancel: function(res){
+                      //do something
+                    }
+                  });
+                });
+
+                //confirm window
+                $('.btn-demo-confirm').click(function(){
+                  $.gDialog.confirm("Want to contribute?", {
+                    title: "Confirm window",
+                    onSubmit: function(res){
+                      //do something
+                    },
+                    onCancel: function(res){
+                      //do something
+                    }
+                  });
+                });                
+              </code>
+            </pre>            
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./dist/jquery.gDialog.css">
+    <script src="./dist/jquery.gDialog.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script src="./main.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
