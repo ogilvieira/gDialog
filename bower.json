@@ -1,0 +1,10 @@
+{
+  "name": "jquery.gDialog",
+  "version": "0.1.0",
+  "main": "src/jquery.gDialog.js",
+  "ignore": [
+    "README.md",
+    "LICENSE",
+    ".gitignore",
+  ]
+}
