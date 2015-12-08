@@ -46,6 +46,7 @@
         animateOut : false,
         onSubmit : false,
         onCancel : false,
+        required: false, 
     };
 
     m.tplBase = "<div class=\"gdialog-wrap\">";
@@ -110,7 +111,17 @@
             that.btnOk.on("click", function(e){
                 e.preventDefault();
                 var res = false;
-                if( that.field.length ){ res = that.field.val(); }
+                if( that.field.length ){ 
+                    if( that.options.required == true && !that.field.val().length ){
+                        that.field.addClass('is-invalid');
+                        return false;
+                    } else {
+                        that.field.removeClass('is-invalid');
+                        res = that.field.val(); 
+                    }
+                } else {
+                    res = true;
+                }
                 if( typeof that.options.onSubmit == 'function' ){
                     that.options.onSubmit(res);
                 }
@@ -119,7 +130,9 @@
             that.btnCancel.on("click", function(e){
                 e.preventDefault();
                 var res = false;
-                if( that.field.length ){ res = that.field.val(); }
+                if( that.field.length && that.field.val().length !== 0 ){ 
+                    res = that.field.val(); 
+                }
                 if( typeof that.options.onCancel == 'function' ){
                     that.options.onCancel(res);
                 }
@@ -137,6 +150,9 @@
             that.btnOk = that.container.find('.button-ok');
             that.btnCancel = that.container.find('.button-cancel');
             that.field = that.container.find('input');
+            if( defaultValue && that.field.length ){
+                that.field.al(defaultValue);
+            };
 
             that.container.addClass('is-active').css({'top': $(window).scrollTop()+50});
             if( that.options.animateIn ){
@@ -169,13 +185,15 @@
     g.confirm = function(message, userOptions){
         var message = message || "";
         var userOptions = userOptions || {};
-        m.Dialog('confirm', message, userOptions);  
+        var dialog = new m.Dialog;
+        dialog.init('confirm', message, userOptions);
     };
 
-	g.prompt = function(message, defaultValue, userOptions){
+    g.prompt = function(message, defaultValue, userOptions){
         var message = message || "";
         var userOptions = userOptions || {};
-        m.Dialog('prompt', message, userOptions, defaultValue);
+        var dialog = new m.Dialog;
+        dialog.init('prompt', message, userOptions, defaultValue);
     };
 
     g.config = function(options){
