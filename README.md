@@ -1,7 +1,6 @@
 # gDialog
----
 jQuery, Zepto, Responsive and UMD
-
+---
 An elegant replacement dialog boxes with fancy entrance and exit animations powered by [Animate.css](https://daneden.github.io/animate.css/).
 
 
